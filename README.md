@@ -2,14 +2,13 @@
 
 Vue Performance Devtool is a browser extension for inspecting the performance of Vue Components. It statistically examines the performance of Vue components based on the measures which are collected by Vue using `window.performance` API.
 
-<p align="center"><img width="600px" src="https://raw.githubusercontent.com/vue-perf-devtool/vue-perf-devtool/master/media/background2.png" alt="demo"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/vue-perf-devtool/vue-perf-devtool/master/media/logo.png" alt="logo"></p>
 
 Initially started after reading [React Performance Devtool](https://github.com/nitin42/react-perf-devtool#using-the-browser-extension) and created from [Vue Devtool](https://github.com/vuejs/vue-devtools).
 
 ## Installation
 
 The below extensions represent the current stable release.
-
 
 - [Chrome extension](https://chrome.google.com/webstore/detail/vue-performance-devtool/koljilikekcjfeecjefimopfffhkjbne)
 - [Firefox extension](https://addons.mozilla.org/en-US/firefox/addon/vue-performance-devtool/)
@@ -31,6 +30,8 @@ Vue.config.performance = true
 - Examine which components are taking more time to load.
 
 ## Description
+
+<p align="center"><img width="600px" src="https://raw.githubusercontent.com/vue-perf-devtool/vue-perf-devtool/master/media/background2.png" alt="demo"></p>
 
 - **Init:** Time taken in "beforeCreated" and "created" of lifecycle.
 - **Render:** Time taken to create the instance in javascript.
