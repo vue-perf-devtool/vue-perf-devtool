@@ -1,0 +1,65 @@
+{
+  "name": "vue-perf-devtool",
+  "version": "0.0.3",
+  "description": "A devtool extension for inspecting the performance of Vue components.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cd shells/dev && webpack-dev-server --inline --hot --no-info",
+    "dev:chrome": "cd shells/chrome && webpack --watch --hide-modules",
+    "dev:safari": "cd shells/safari && webpack --watch --hide-modules",
+    "lint": "eslint src --ext=js,vue && eslint shells/chrome/src && eslint shells/dev/src && eslint shells/safari/src",
+    "build": "cd shells/chrome && cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "run:firefox": "web-ext run -s shells/chrome -a dist -i src",
+    "zip": "npm run zip:chrome && npm run zip:firefox",
+    "zip:chrome": "cd shells && ../zip.exe -r -FS ../dist/chrome.zip chrome -x *src/* -x *webpack.config.js",
+    "zip:firefox": "web-ext build -s shells/chrome -a dist -i src --overwrite-dest",
+    "release": "node release.js && npm run test && npm run build && npm run zip"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuejs/vue-devtools.git"
+  },
+  "keywords": [
+    "vue",
+    "devtools"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vuejs/vue-devtools/issues"
+  },
+  "homepage": "https://github.com/vuejs/vue-devtools#readme",
+  "devDependencies": {
+    "buble": "^0.18.0",
+    "buble-loader": "^0.4.1",
+    "chromedriver": "^2.34.0",
+    "cross-env": "^5.1.3",
+    "css-loader": "^0.28.7",
+    "eslint": "^4.13.1",
+    "eslint-plugin-vue-libs": "^2.0.1",
+    "file-loader": "^1.1.6",
+    "friendly-errors-webpack-plugin": "^1.6.1",
+    "inquirer": "^5.0.0",
+    "launch-editor-middleware": "^2.1.0",
+    "nightwatch": "^0.9.19",
+    "nightwatch-helpers": "^1.2.0",
+    "selenium-server": "2.52.0",
+    "semver": "^5.4.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "url-loader": "^0.6.2",
+    "vue-loader": "^13.6.1",
+    "vue-template-compiler": "^2.5.13",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
+  },
+  "dependencies": {
+    "circular-json-es6": "^2.0.1",
+    "lodash.debounce": "^4.0.8",
+    "lodash.groupby": "^4.6.0",
+    "uglifyjs-webpack-plugin": "^1.1.4",
+    "v-tooltip": "^2.0.0-rc.25",
+    "vue": "^2.5.13",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
+  }
+}

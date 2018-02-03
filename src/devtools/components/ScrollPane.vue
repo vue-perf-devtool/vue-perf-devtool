@@ -1,0 +1,84 @@
+<template>
+  <div class="scroll-pane">
+    <div ref="headerContainer" class="header">
+      <slot name="header"></slot>
+    </div>
+    <div ref="scrollContainer" class="scroll">
+      <slot name="scroll"></slot>
+    </div>
+    <div class="bottom">
+      <slot name="bottom"></slot>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    scrollEvent: String
+  },
+  mounted () {
+    if (this.scrollEvent) {
+      bridge.on(this.scrollEvent, this.scrollToBottom)
+    }
+    this.scrollLeft()
+  },
+  destroyed () {
+    if (this.scrollEvent) {
+      bridge.removeListener(this.scrollEvent, this.scrollToBottom)
+    }
+  },
+  methods: {
+    scrollToBottom () {
+      this.$nextTick(() => {
+        const container = this.$refs.scrollContainer
+        if (container.children.length) {
+          container.scrollTop = container.children[0].offsetHeight
+        }
+      })
+    },
+
+    scrollLeft () {
+      const container = this.$refs.scrollContainer
+      const header = this.$refs.headerContainer
+      container.onscroll = () => {
+        header.scrollLeft = container.scrollLeft
+      }
+    }
+
+  }
+}
+</script>
+
+<style lang="stylus" scoped>
+@import "../variables"
+
+.scroll-pane
+  display flex
+  flex-direction column
+  height 100%
+
+.scroll
+  flex 1
+  overflow auto
+  overflow-y: scroll;
+  .dark &::-webkit-scrollbar
+    background: $dark-background-color
+    border-left: 1px solid $dark-border-color
+  .dark &::-webkit-scrollbar-thumb
+    background: lighten($dark-background-color, 7%);
+    border: 1px solid lighten($dark-border-color, 7%)
+
+.header, .bottom
+  overflow-x hidden
+  padding-right 15px
+
+// Keeping this here in case `overflow: overlay`
+// doesn't float everyone's boat.
+.scroll--themed
+  &::-webkit-scrollbar
+    width 5px
+    height 0
+    &-thumb
+      background $active-color
+</style>
