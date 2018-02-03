@@ -2,6 +2,8 @@
 
 Vue Performance Devtool is a browser extension for inspecting the performance of Vue Components. It statistically examines the performance of Vue components based on the measures which are collected by Vue using `window.performance` API.
 
+<p align="center"><img width="600px" src="https://raw.githubusercontent.com/vue-perf-devtool/vue-perf-devtool/master/media/background2.png" alt="demo"></p>
+
 Initially started after reading [React Performance Devtool](https://github.com/nitin42/react-perf-devtool#using-the-browser-extension) and created from [Vue Devtool](https://github.com/vuejs/vue-devtools).
 
 ## Installation
