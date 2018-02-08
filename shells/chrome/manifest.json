@@ -1,6 +1,6 @@
 {
   "name": "Vue Performance Devtool",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A devtool extension for inspecting the performance of Vue components.",
   "manifest_version": 2,
   "icons": {
