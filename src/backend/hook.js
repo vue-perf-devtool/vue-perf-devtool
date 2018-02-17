@@ -77,7 +77,7 @@ export function installHook (window) {
   if (perf && perf.clearMeasures && !perf._clearMeasures) {
     perf._clearMeasures = perf.clearMeasures
     perf.clearMeasures = name => {
-      if (name.indexOf('⚛') === -1 && name.indexOf('Warning:') === -1) {
+      if (name && name.indexOf('⚛') === -1 && name.indexOf('Warning:') === -1) {
         const measure = window.performance.getEntries().filter(item => item.entryType === 'measure').map(item => ({
           name: item.name,
           duration: item.duration

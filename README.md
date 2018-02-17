@@ -37,6 +37,43 @@ Vue.config.performance = true
 - **Render:** Time taken to create the instance in javascript.
 - **Patch:** Time taken to render in dom.
 
+## Development
+
+1. Clone this repo
+2. `npm install`
+3. `npm run dev`
+4. A plain shell with a test app will be available at `localhost:8080`.
+
+## Testing as Firefox addon
+
+ 1. Install `web-ext`
+
+	~~~~
+	$ npm install --global web-ext
+	~~~~
+
+	Or, for Yarn:
+
+	~~~~
+	$ yarn global add web-ext
+	~~~~
+
+	Also, make sure `PATH` is set up. Something like this in `~/.bash_profile`:
+
+	~~~~
+	$ PATH=$PATH:$(yarn global bin)
+	~~~~
+
+ 2. Build and run in Firefox
+
+	~~~~
+	$ npm run build
+	$ npm run run:firefox
+	~~~~
+
+	When using Yarn, just replace `npm` with `yarn`.
+
+
 ## Acknowledgments
 Special thanks to [Evan You](https://github.com/yyx990803) and [vue-devtool contributors](https://github.com/vuejs/vue-devtools/graphs/contributors)
 

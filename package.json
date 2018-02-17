@@ -11,13 +11,13 @@
     "build": "cd shells/chrome && cross-env NODE_ENV=production webpack --progress --hide-modules",
     "run:firefox": "web-ext run -s shells/chrome -a dist -i src",
     "zip": "npm run zip:chrome && npm run zip:firefox",
-    "zip:chrome": "cd shells && ../zip.exe -r -FS ../dist/chrome.zip chrome -x *src/* -x *webpack.config.js",
+    "zip:chrome": "cd shells && zip -r -FS ../dist/chrome.zip chrome -x *src/* -x *webpack.config.js",
     "zip:firefox": "web-ext build -s shells/chrome -a dist -i src --overwrite-dest",
     "release": "node release.js && npm run test && npm run build && npm run zip"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vuejs/vue-devtools.git"
+    "url": "git+https://github.com/vue-perf-devtool/vue-perf-devtool"
   },
   "keywords": [
     "vue",
@@ -25,9 +25,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vuejs/vue-devtools/issues"
+    "url": "https://github.com/vue-perf-devtool/vue-perf-devtool/issues"
   },
-  "homepage": "https://github.com/vuejs/vue-devtools#readme",
+  "homepage": "https://github.com/vue-perf-devtool/vue-perf-devtool#readme",
   "devDependencies": {
     "buble": "^0.18.0",
     "buble-loader": "^0.4.1",
