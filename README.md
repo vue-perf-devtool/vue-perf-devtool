@@ -18,9 +18,15 @@ The below extensions represent the current stable release.
 To use this performance devtool extension, you'll need to allow [vue-devtools inspection](https://vuejs.org/v2/api/#devtools) and [performance](https://vuejs.org/v2/api/#performance)
 
 ```js
-// make sure to set this synchronously immediately after loading Vue
+// make sure to set this synchronously immediately after loading Vue and before `new Vue`
 Vue.config.devtools = true
 Vue.config.performance = true
+```
+
+**Note**: if you keep `Vue.config.performance = true` on production, you will also be able to use Vue official devtools in the production build. If you don't want that, you can toggle the config to false by using an environment variable:
+
+```js
+Vue.config.performance = process.env.NODE_ENV !== 'production'
 ```
 
 ## Uses
