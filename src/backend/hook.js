@@ -100,6 +100,10 @@ export function installHook (window) {
     }
   })
 
+  hook.once('vuex:init', store => {
+    hook.store = store
+  })
+
   if (!window.__VUE_DEVTOOLS_GLOBAL_HOOK__) {
     Object.defineProperty(window, '__VUE_DEVTOOLS_GLOBAL_HOOK__', {
       get () {
